@@ -1,21 +1,89 @@
-import React from "react"
-import { Link } from "gatsby"
+import React from 'react';
+import { graphql } from 'gatsby';
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+import Wrapper from '../components/Wrapper';
+import HomePage from '../components/HomePage';
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
-)
+const IndexPage = ({ data }) => {
+  console.log(data);
+  return (
+    <Wrapper>
+      <HomePage {...data} />
+    </Wrapper>
+  );
+}
 
-export default IndexPage
+export const sitePropsQuery = graphql`
+  query sitePropsQuery {
+    siteSettings: sanitySiteSettings {
+      id
+      siteTitle
+      social {
+        twitter
+        instagram
+        facebook
+        linkedin
+      }
+      contact {
+        phone
+        email
+      }
+      formOptions {
+        successMessage
+        errorMessage
+      }
+    }
+    pageSettings: sanityHome {
+      id
+      title
+      headerImage {
+        _type
+        asset {
+          _type
+          fluid(maxWidth: 700) {
+            ...GatsbySanityImageFluid
+          }
+        }
+        hotspot {
+          _key
+          _type
+          x
+          y
+          height
+          width
+        }
+        crop {
+          _key
+          _type
+          top
+          bottom
+          left
+          right
+        }
+      }
+      headingText
+      list
+      homeVideo
+      seoSettings {
+        _key
+        _type
+        title
+        metaDescription
+        canonicalUrl
+      }
+      body {
+        _key
+        _type
+        style
+        list
+        children {
+          _key
+          _type
+          text
+        }
+      }
+    }
+  }
+`;
+
+export default IndexPage;
