@@ -26,6 +26,19 @@ module.exports = {
         displayName: true,
       },
     },
+    // {
+    //   resolve: `gatsby-source-cloudinary`,
+    //   options: {
+    //     cloudName: 'creative-distillery1',
+    //     apiKey: process.env.CLOUDINARY_KEY,
+    //     apiSecret: process.env.CLOUDINARY_SECRET,
+    //     resourceType: 'video',
+    //     // type: `type Value`,
+    //     maxResults: 100,
+    //     // tags: `fetch image tags?`,
+    //     // prefix: `abc-xyz/`,
+    //   },
+    // },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
