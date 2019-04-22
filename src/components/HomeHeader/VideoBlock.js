@@ -56,6 +56,7 @@ const StyledVideoBlock = styled.div`
     opacity: 0.75;
     width: 75px;
     height: 75px;
+    background: white;
     transform: translate(-50%, -50%) scale(0.9);
     transition: 0.15s;
     z-index: 2;
