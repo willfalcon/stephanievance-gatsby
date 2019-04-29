@@ -4,16 +4,17 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Stephanie Vance Counseling`,
+    description: `Stephanie Vance Counseling is for individuals or couples who are ready to improve their lives through therapy.`,
+    author: `Stephanie Vance Counseling`,
   },
+  pathPrefix: `/~vancec6`,
   plugins: [
     {
       resolve: 'gatsby-source-sanity',
       options: {
-        projectId: process.env.SANITY_PROJECT_ID,
-        dataset: process.env.SANITY_DATASET,
+        projectId: 'ub50splo',
+        dataset: 'dev',
         // a token with read permissions is required
         // if you have a private dataset
         // token: process.env.SANITY_TOKEN,
@@ -26,19 +27,21 @@ module.exports = {
         displayName: true,
       },
     },
-    // {
-    //   resolve: `gatsby-source-cloudinary`,
-    //   options: {
-    //     cloudName: 'creative-distillery1',
-    //     apiKey: process.env.CLOUDINARY_KEY,
-    //     apiSecret: process.env.CLOUDINARY_SECRET,
-    //     resourceType: 'video',
-    //     // type: `type Value`,
-    //     maxResults: 100,
-    //     // tags: `fetch image tags?`,
-    //     // prefix: `abc-xyz/`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: 'GTM-PKP2TGH',
+
+        // Include GTM in development.
+        // Defaults to false meaning GTM will only be loaded in production.
+        includeInDevelopment: true,
+
+        // Specify optional GTM environment details.
+        // gtmAuth: 'YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_AUTH_STRING',
+        // gtmPreview: 'YOUR_GOOGLE_TAGMANAGER_ENVIROMENT_PREVIEW_NAME',
+        // dataLayerName: 'YOUR_DATA_LAYER_NAME',
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

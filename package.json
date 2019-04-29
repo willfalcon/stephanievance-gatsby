@@ -6,6 +6,7 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "scripts": {
     "build": "gatsby build",
+    "build-temp": "gatsby build --prefix-paths",
     "dev": "gatsby develop",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
@@ -19,6 +20,7 @@
     "dotenv": "^7.0.0",
     "gatsby": "^2.3.25",
     "gatsby-image": "^2.0.39",
+    "gatsby-plugin-google-tagmanager": "^2.0.13",
     "gatsby-plugin-manifest": "^2.0.29",
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-react-helmet": "^3.0.12",
